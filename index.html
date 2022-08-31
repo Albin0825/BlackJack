@@ -10,28 +10,40 @@
 </head>
 <body>
     <section>
-        <div class="person">
-            <div class="accent"></div>
-            <div id="PersonGrid" class="grid">
-                <!-- the players cards here -->
-            </div>
-        </div>
-        <div class="computer">
-            <div class="accent"></div>
-            <div id="ComputerGrid" class="grid">
-                <!-- the computers cards here -->
-            </div>
-        </div>
-        <div class="card move">
-            <div class="card1">
-                <div class="front">
-                    <img src="./assets/img/Card 2.svg" alt="Avatar">
-                </div>
-                <div id="back" class="back">
-                    <img src="./assets/img/Card.svg" alt="Avatar">
-                    <img class="diamond" src="./assets/img/Diamonds.svg" alt="Avatar">
+        <div class="deck">
+            <!-- players deck -->
+            <div class="person">
+                <div class="accent"></div>
+                <div id="PersonGrid" class="grid">
+                    <!-- the players cards here -->
                 </div>
             </div>
+            <!-- computers deck -->
+            <div class="computer">
+                <div class="accent"></div>
+                <div id="ComputerGrid" class="grid">
+                    <!-- the computers cards here -->
+                </div>
+            </div>
+            <!-- falling card -->
+            <div class="card move">
+                <div class="card1">
+                    <div class="front">
+                        <img src="./assets/img/Card 2.svg" alt="Avatar">
+                    </div>
+                    <div id="back" class="back">
+                        <img src="./assets/img/Card.svg" alt="Avatar">
+                        <img class="diamond" src="./assets/img/Diamonds.svg" alt="Avatar">
+                        <h2 id="top" class="top"></h2>
+                        <h2 id="bottom" class="bottom"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <div class="btn">Start</div>
+            <div class="btn">Mer kort</div>
+            <div class="btn">Slut</div>
         </div>
     </section>
     <script src="./assets/js/app.js"></script>

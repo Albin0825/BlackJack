@@ -1,14 +1,11 @@
 const Person = document.getElementById("PersonGrid");
-const back = document.getElementById("back");
 
 var number = 2
 
 
-GetNumber();
 function GetNumber() {
     cardnumber = Math.floor(Math.random() * 10)+1;
     console.log(cardnumber)
-    
 }
 
 FadeIn();
@@ -19,15 +16,10 @@ function FadeIn() {
 }
 
 function FallingCard() {
-    const h2top = document.createElement("h2");
-    h2top.classList.add("top");
-    h2top.append(cardnumber);
-    back.append(h2top);
-
-    const h2bottom = document.createElement("h2");
-    h2bottom.classList.add("bottom");
-    h2bottom.append(cardnumber);
-    back.append(h2bottom);
+    // Top number of card that is falling down
+    document.getElementById("top").innerHTML = cardnumber;
+    // Bottom number of card that is falling down
+    document.getElementById("bottom").innerHTML = cardnumber;
 }
 
 function NewCard() {
