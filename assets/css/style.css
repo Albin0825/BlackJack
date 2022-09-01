@@ -5,9 +5,18 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+:root {
+    --Maincolor: #222;
+    --accent: linear-gradient(90deg , rgba(132,94,194,1) 0%, rgba(214,93,177,1) 100%);
+    --Deck: #2b2b2b;
+    --btn: #2b2b2b;
+    --TextColor: #eee;
+}
+
 body{
     overflow-y: hidden;
-    background-color: #eee;
+    background-color: var(--Maincolor);
     height: 100vh;
 }
 section{
@@ -132,7 +141,7 @@ h2{
     position: relative;
     font-size: 43px;
     text-align: center;
-    color: #eee;
+    color: var(--TextColor);
     margin: 23px;
 }
 .top{
@@ -157,7 +166,7 @@ h2{
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    background-color: #ddd;
+    background-color: var(--Deck);
     width: 700px;
     height: 500px;
     border-radius: 17px;
@@ -166,10 +175,10 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg , rgba(132,94,194,1) 0%, rgba(214,93,177,1) 100%);
+    background: var(--accent);
     height: 40px !important;
     width: 100%;
-    color: #ddd;
+    color: var(--TextColor);
 }
 .computer .accent{
     rotate: 180deg;
@@ -188,9 +197,9 @@ h2{
 
 .btn {
     display: inline-block;
-    background-color: #ddd;
+    background-color: var(--btn);
     margin: 17px;
     padding: 17px;
-    color: #222;
+    color: var(--TextColor);
     border-radius: 7px;
 }
