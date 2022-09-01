@@ -1,5 +1,8 @@
 const Person = document.getElementById("PersonGrid");
 
+const move = document.getElementById("move");
+const card1 = document.getElementById("card1");
+
 var number = 2
 
 
@@ -20,6 +23,14 @@ function FallingCard() {
     document.getElementById("top").innerHTML = cardnumber;
     // Bottom number of card that is falling down
     document.getElementById("bottom").innerHTML = cardnumber;
+
+    // Resets the animation
+    move.style.animation = 'none';
+    move.offsetHeight; /* trigger reflow */
+    move.style.animation = null; 
+    card1.style.animation = 'none';
+    card1.offsetHeight; /* trigger reflow */
+    card1.style.animation = null;
 }
 
 function NewCard() {
