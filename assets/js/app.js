@@ -20,6 +20,11 @@ var standing = false;
 var deeler = {person: false}
 var time = {full: 2000, half: 1000}
 
+
+move.style.animation = "none";
+card1.style.animation = "none";
+
+
 //button functions
 function start() {
     if(number >= 2){
