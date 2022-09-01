@@ -35,7 +35,7 @@ section .deck, section .btns{
 .move{
     position: absolute;
     top: -500px;
-    animation: MoveDown 2s 1s cubic-bezier(.435,1.625,.435,.75);
+    animation: MoveDown 2s cubic-bezier(.435,1.625,.435,.75);
     animation-fill-mode: forwards;
     transition: all 0.3s ease-in-out;
     transform: translate(0%, -50%);
@@ -96,7 +96,7 @@ section .deck, section .btns{
     background-color: transparent;
     width: 100%;
     height: 100%;
-    animation: Rotate 2s 1s;
+    animation: Rotate 2s;
     animation-fill-mode:forwards;
     transition: transform 1s cubic-bezier(0.63, 1.25, 0, 1);
     transform-style: preserve-3d;
@@ -163,14 +163,20 @@ h2{
     border-radius: 17px;
 }
 .accent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(90deg , rgba(132,94,194,1) 0%, rgba(214,93,177,1) 100%);
     height: 40px !important;
     width: 100%;
+    color: #eee;
 }
 .computer .accent{
     rotate: 180deg;
 }
-
+.computer .accent h1{
+    rotate: 180deg;
+}
 
 .grid{
     display: grid;

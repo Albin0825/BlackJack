@@ -1,21 +1,76 @@
+// the persons deck
 const Person = document.getElementById("PersonGrid");
+const Computer = document.getElementById("ComputerGrid");
+const PersonScore = document.getElementById("PersonScore");
 
+// falling card
 const move = document.getElementById("move");
 const card1 = document.getElementById("card1");
 
-var number = 2
+//btns
+document.getElementById("start").addEventListener("click", start);
+document.getElementById("hit").addEventListener("click", hit);
+document.getElementById("stand").addEventListener("click", stand);
 
+//variabler
+var number = 0;
+var temp = {person:0,computer:0};
+var starting = false;
+var standing = false;
+var deeler = {person: true}
 
-function GetNumber() {
-    cardnumber = Math.floor(Math.random() * 10)+1;
-    console.log(cardnumber)
+//button functions
+function start() {
+    if(number >= 2){
+        deeler.person = false;
+    }
+    if(number == 4){
+        starting = true;
+        deeler.person = true;
+    }
+    if(starting == false){
+        if(number != 4) {
+            FadeIn();
+            number++
+            setTimeout(() => {
+                start()
+            }, "2000")
+        }
+    }
+}
+function hit() {
+    if(starting == true){
+        FadeIn();
+    }
+}
+function stand() {
+    if(starting == true){
+        starting = false;
+        standing = true;
+    }
 }
 
-FadeIn();
+
 function FadeIn() {
     GetNumber();
     FallingCard();
     NewCard();
+}
+
+function GetNumber() {
+    cardnumber = Math.floor(Math.random() * 10)+1;
+    setTimeout(() => {
+        if(deeler.person == true){
+            temp.person = temp.person + cardnumber;
+            PersonScore.innerHTML = temp.person;
+        }
+    }, 1000)
+    setTimeout(() => {
+        if(deeler.person == false){
+            temp.computer = temp.computer + cardnumber;
+            ComputerScore.innerHTML = temp.computer;
+        }
+    }, 1000)
 }
 
 function FallingCard() {
@@ -38,8 +93,6 @@ function NewCard() {
         const NewDiv = document.createElement("div");
         NewDiv.classList.add("card")
         NewDiv.classList.add("sidecards")
-        NewDiv.classList.add("card"+number)
-        number++
 
         const imgbg = document.createElement("img");
         imgbg.src = "assets/img/Card.svg";
@@ -59,6 +112,11 @@ function NewCard() {
         h2bottom.classList.add("bottom");
         h2bottom.append(cardnumber);
         NewDiv.append(h2bottom);
-        Person.appendChild(NewDiv);
-    }, "3000")
+        if(deeler.person == true) {
+            Person.appendChild(NewDiv);
+        }
+        if(deeler.person == false) {
+            Computer.appendChild(NewDiv)
+        }
+    }, "2000")
 }
