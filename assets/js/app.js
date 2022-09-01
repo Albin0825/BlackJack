@@ -17,16 +17,16 @@ var number = 0;
 var temp = {person:0,computer:0};
 var starting = false;
 var standing = false;
-var deeler = {person: true}
+var deeler = {person: false}
+var time = {full: 2000, half: 1000}
 
 //button functions
 function start() {
     if(number >= 2){
-        deeler.person = false;
+        deeler.person = true;
     }
     if(number == 4){
         starting = true;
-        deeler.person = true;
     }
     if(starting == false){
         if(number != 4) {
@@ -34,7 +34,7 @@ function start() {
             number++
             setTimeout(() => {
                 start()
-            }, "2000")
+            }, time.full)
         }
     }
 }
@@ -47,7 +47,53 @@ function stand() {
     if(starting == true){
         starting = false;
         standing = true;
+        deeler.person = false;
+        stands2();
     }
+}
+
+function stands2() {
+    // datorn drar mer kort
+    if(temp.computer <= 15){
+        FadeIn();
+        setTimeout(() => {
+            stands2()
+        }, time.full)
+    }
+    // ifall datorn blir fet
+    else if(temp.computer >= 22){
+        if(temp.person >= 22) {
+            draw();
+        }
+        else {
+            win();
+        }
+    }
+    // ifall spelaren blir fet
+    else if(temp.person >= 22) {
+        lose();
+    }
+    else{
+        if(temp.person > temp.computer) {
+            win();
+        }
+        else if(temp.person < temp.computer) {
+            lose();
+        }
+        else {
+            draw();
+        }
+    }
+}
+
+function win() {
+    console.log("du van")
+}
+function lose() {
+    console.log("du förlorade")
+}
+function draw() {
+    console.log("ingen van???")
 }
 
 
@@ -63,14 +109,17 @@ function GetNumber() {
         if(deeler.person == true){
             temp.person = temp.person + cardnumber;
             PersonScore.innerHTML = temp.person;
+            if(temp.person >= 21) {
+                setTimeout(() => {
+                    stand();
+                }, time.full)
+            }
         }
-    }, 1000)
-    setTimeout(() => {
         if(deeler.person == false){
             temp.computer = temp.computer + cardnumber;
             ComputerScore.innerHTML = temp.computer;
         }
-    }, 1000)
+    }, time.half)
 }
 
 function FallingCard() {
@@ -118,5 +167,8 @@ function NewCard() {
         if(deeler.person == false) {
             Computer.appendChild(NewDiv)
         }
-    }, "2000")
+    }, time.full)
 }
+
+
+
