@@ -32,9 +32,10 @@ card1.style.animation = "none";
 
 End.style.animation = "none";
 
-
 //button functions
 function start() {
+    document.getElementById("hit").style.cursor = "default";
+    document.getElementById("stand").style.cursor = "default";
     if(number >= 2){
         deeler.person = true;
     }

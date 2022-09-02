@@ -215,7 +215,11 @@ h3{
     margin: 17px;
     padding: 17px;
     color: var(--TextColor);
+    user-select: none;
     border-radius: 7px;
+}
+#hit, #stand {
+    cursor: no-drop;
 }
 
 #EndScrean {
