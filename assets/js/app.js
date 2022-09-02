@@ -78,6 +78,7 @@ function stands2() {
     else if(temp.person >= 22) {
         lose();
     }
+    // om ingen blir fet
     else{
         if(temp.person > temp.computer) {
             win();
@@ -109,18 +110,18 @@ function FadeIn() {
 }
 
 function GetNumber() {
-    cardnumber = Math.floor(Math.random() * 10)+1;
+    cardnumber = Math.floor(Math.random() * 10)+1; //generates a random number between 1 and 10
     setTimeout(() => {
-        if(deeler.person == true){
+        if(deeler.person == true){ // adds score to the player
             temp.person = temp.person + cardnumber;
             PersonScore.innerHTML = temp.person;
-            if(temp.person >= 21) {
+            if(temp.person >= 21) { // checks if player should stand automaticly (if 21 and above)
                 setTimeout(() => {
                     stand();
                 }, time.full)
             }
         }
-        if(deeler.person == false){
+        if(deeler.person == false){ // adds score to the computer
             temp.computer = temp.computer + cardnumber;
             ComputerScore.innerHTML = temp.computer;
         }
@@ -148,32 +149,30 @@ function NewCard() {
         NewDiv.classList.add("card")
         NewDiv.classList.add("sidecards")
 
-        const imgbg = document.createElement("img");
+        const imgbg = document.createElement("img"); // the background of the card
         imgbg.src = "assets/img/Card.svg";
         NewDiv.append(imgbg);
 
-        const imgdia = document.createElement("img");
+        const imgdia = document.createElement("img"); // diamond shape on card
         imgdia.src = "assets/img/Diamonds.svg";
         imgdia.classList.add("diamond")
         NewDiv.append(imgdia);
 
-        const h2top = document.createElement("h2");
+        const h2top = document.createElement("h2"); // top number of card
         h2top.classList.add("top");
         h2top.append(cardnumber);
         NewDiv.append(h2top);
 
-        const h2bottom = document.createElement("h2");
+        const h2bottom = document.createElement("h2"); // bottom number of card
         h2bottom.classList.add("bottom");
         h2bottom.append(cardnumber);
         NewDiv.append(h2bottom);
+        
         if(deeler.person == true) {
-            Person.appendChild(NewDiv);
+            Person.appendChild(NewDiv); // adds card to player
         }
         if(deeler.person == false) {
-            Computer.appendChild(NewDiv)
+            Computer.appendChild(NewDiv) // adds card to  computer
         }
     }, time.full)
 }
-
-
-
