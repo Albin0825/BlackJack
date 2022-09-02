@@ -1,7 +1,8 @@
-// the persons deck
+// deck and score
 const Person = document.getElementById("PersonGrid");
 const Computer = document.getElementById("ComputerGrid");
 const PersonScore = document.getElementById("PersonScore");
+const ComputerScore = document.getElementById("ComputerScore");
 
 // falling card
 const move = document.getElementById("move");
@@ -12,6 +13,10 @@ document.getElementById("start").addEventListener("click", start);
 document.getElementById("hit").addEventListener("click", hit);
 document.getElementById("stand").addEventListener("click", stand);
 
+// endscreen
+const End = document.getElementById("EndScrean");
+const EndText = document.getElementById("EndText");
+
 //variabler
 var number = 0;
 var temp = {person:0,computer:0};
@@ -19,10 +24,13 @@ var starting = false;
 var standing = false;
 var deeler = {person: false}
 var time = {full: 2000, half: 1000}
+var text = "";
 
 
 move.style.animation = "none";
 card1.style.animation = "none";
+
+End.style.animation = "none";
 
 
 //button functions
@@ -69,37 +77,50 @@ function stands2() {
     else if(temp.computer >= 22){
         if(temp.person >= 22) {
             draw();
+            EndScreen();
         }
         else {
             win();
+            EndScreen();
         }
     }
     // ifall spelaren blir fet
     else if(temp.person >= 22) {
         lose();
+        EndScreen();
     }
     // om ingen blir fet
     else{
         if(temp.person > temp.computer) {
             win();
+            EndScreen();
         }
         else if(temp.person < temp.computer) {
             lose();
+            EndScreen();
         }
         else {
             draw();
+            EndScreen();
         }
     }
 }
 
+function EndScreen() {
+    EndText.innerHTML = text;
+    End.style.animation = 'none';
+    End.offsetHeight; /* trigger reflow */
+    End.style.animation = null;
+}
+
 function win() {
-    console.log("du van")
+    text = "YOU WIN";
 }
 function lose() {
-    console.log("du förlorade")
+    text = "YOU LOSE";
 }
 function draw() {
-    console.log("ingen van???")
+    text = "DRAW";
 }
 
 
@@ -158,15 +179,15 @@ function NewCard() {
         imgdia.classList.add("diamond")
         NewDiv.append(imgdia);
 
-        const h2top = document.createElement("h2"); // top number of card
-        h2top.classList.add("top");
-        h2top.append(cardnumber);
-        NewDiv.append(h2top);
+        const h3top = document.createElement("h3"); // top number of card
+        h3top.classList.add("top");
+        h3top.append(cardnumber);
+        NewDiv.append(h3top);
 
-        const h2bottom = document.createElement("h2"); // bottom number of card
-        h2bottom.classList.add("bottom");
-        h2bottom.append(cardnumber);
-        NewDiv.append(h2bottom);
+        const h3bottom = document.createElement("h3"); // bottom number of card
+        h3bottom.classList.add("bottom");
+        h3bottom.append(cardnumber);
+        NewDiv.append(h3bottom);
         
         if(deeler.person == true) {
             Person.appendChild(NewDiv); // adds card to player

@@ -101,6 +101,15 @@ section .deck, section .btns{
     }
 }
 
+@keyframes End {
+    0%{
+        top: -100px;
+    }
+    100%{
+        top: 50vh;
+    }
+}
+
 .card1{
     background-color: transparent;
     width: 100%;
@@ -137,7 +146,7 @@ section .deck, section .btns{
     transform: translate(0%, -50%) scale(0.7);
 }
 
-h2{
+h3{
     position: relative;
     font-size: 43px;
     text-align: center;
@@ -183,7 +192,7 @@ h2{
 .computer .accent{
     rotate: 180deg;
 }
-.computer .accent h1{
+.computer .accent h2{
     rotate: 180deg;
 }
 
@@ -202,4 +211,20 @@ h2{
     padding: 17px;
     color: var(--TextColor);
     border-radius: 7px;
+}
+
+#EndScrean {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100vw;
+    height: 100px;
+    top: -100px;
+    color: var(--TextColor);
+    animation: End 0.62s cubic-bezier(.435,1.625,.435,.75);
+    animation-fill-mode: forwards;
+    transform: translate(0%, -50%);
+    z-index: 100;
 }
