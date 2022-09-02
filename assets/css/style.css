@@ -184,15 +184,20 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     background: var(--accent);
     height: 40px !important;
     width: 100%;
     color: var(--TextColor);
 }
+.accent img{
+    position: absolute;
+    right: 17px;
+}
 .computer .accent{
     rotate: 180deg;
 }
-.computer .accent h2{
+.computer .accent *{
     rotate: 180deg;
 }
 
