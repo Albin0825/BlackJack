@@ -34,27 +34,44 @@
                     <!-- the computers cards here -->
                 </div>
             </div>
-            <!-- falling card -->
-            <div id="move" class="card move">
-                <div id="card1" class="card1">
-                    <div class="front">
-                        <img src="./assets/img/Card 2.svg" alt="Avatar">
-                    </div>
-                    <div id="back" class="back">
-                        <img src="./assets/img/Card.svg" alt="Avatar">
-                        <img class="diamond" src="./assets/img/Diamonds.svg" alt="Avatar">
-                        <h3 id="top" class="top"></h3>
-                        <h3 id="bottom" class="bottom"></h3>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="btns">
             <div id="start" class="btn">Start</div>
             <div id="hit" class="btn">Hit</div>
+            <div id="double" class="btn">Double</div>
             <div id="stand" class="btn">Stand</div>
+            <div id="surr" class="btn">Surrender</div>
+        </div>
+        <div class="chips">
+            <div class="accent center">
+                <h2 id="ChipsScore">0</h2>
+                <img id="chipsicon" src="./assets/img/chips icon.svg" alt="">
+            </div>
+            <img id="chip5" class="chips" src="./assets/img/Red (5).svg" alt="">
+            <img id="chip10" class="chips" src="./assets/img/Blue (10).svg" alt="">
+            <img id="chip50" class="chips" src="./assets/img/Orange (50).svg" alt="">
+            <img id="chip100" class="chips" src="./assets/img/Black (100).svg" alt="">
+            <h2 id="money">0$</h2>
+        </div>
+        <!-- falling card -->
+        <div id="move" class="card move">
+            <div id="card1" class="card1">
+                <div class="front">
+                    <img src="./assets/img/Card 2.svg" alt="Avatar">
+                </div>
+                <div id="back" class="back">
+                    <img src="./assets/img/Card.svg" alt="Avatar">
+                    <img class="diamond" src="./assets/img/Diamonds.svg" alt="Avatar">
+                    <h3 id="top" class="top"></h3>
+                    <h3 id="bottom" class="bottom"></h3>
+                </div>
+            </div>
         </div>
     </section>
     <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/Bet.js"></script>
+    <script src="./assets/js/Buttons.js"></script>
+    <script src="./assets/js/GetNumber.js"></script>
+    <script src="./assets/js/NewCard.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 :root {
     --Maincolor: #222;
     --accent: linear-gradient(90deg , rgba(132,94,194,1) 0%, rgba(214,93,177,1) 100%);
+    --center: linear-gradient(90deg , rgba(132,94,194,1) 0%, rgba(214,93,177,1) 50%, rgba(132,94,194,1) 100%);
     --Deck: #2b2b2b;
     --btn: #2b2b2b;
     --TextColor: #eee;
@@ -200,6 +201,9 @@ h3{
 .computer .accent *{
     rotate: 180deg;
 }
+.center{
+    background: var(--center);
+}
 
 .grid{
     display: grid;
@@ -236,4 +240,22 @@ h3{
     animation-fill-mode: forwards;
     transform: translate(0%, -50%);
     z-index: 100;
+}
+
+.chips {
+    overflow: hidden;
+    background-color: var(--Deck);
+    margin:14px;
+    border-radius: 17px;
+}
+#chipsicon{
+    position: relative;
+    right: auto;
+    margin: 3px;
+    width: 27px;
+}
+#money{
+    text-align: center;
+    color: var(--TextColor);
+    margin: 7px;
 }
