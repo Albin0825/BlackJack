@@ -1,3 +1,7 @@
+
+/*==================================================
+ Essential
+==================================================*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 *{
     margin: 0;
@@ -20,6 +24,10 @@ body{
     background-color: var(--Maincolor);
     height: 100vh;
 }
+
+/*==================================================
+ Section
+==================================================*/
 section{
     display: flex;
     justify-content: center;
@@ -27,22 +35,99 @@ section{
     flex-flow: column;
     height: 100%;
 }
-section .deck, section .btns{
-    margin: 17px;
-}
+
+/*==================================================
+ Deck
+==================================================*/
 .deck{
     display: flex;
     justify-content: space-around;
     width: 100vw;
 }
-.card{
+
+.person, .computer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--Deck);
+    width: 700px;
+    height: 500px;
+    border-radius: 17px;
+}
+
+.accent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: var(--accent);
+    height: 40px !important;
+    width: 100%;
+    color: var(--TextColor);
+}
+
+.accent img{
+    position: absolute;
+    right: 17px;
+}
+
+.computer .accent{
+    rotate: 180deg;
+}
+
+.computer .accent *{
+    rotate: 180deg;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px;
+    grid-template-rows: 140px 140px 140px;
+    grid-gap: 10px;
+    margin: 10px;
+}
+
+/*==================================================
+ Card
+==================================================*/
+.card{ /** falling card and card in deck*/
     width: 300px;
     height: 418px;
     perspective: 1000px;
     scale: 0.33;
     transform: translate(-100%, -100%);
 }
-.move{
+/*===== imgs of card =====*/
+.card img{
+    position: absolute;
+    width: 300px;
+}
+.diamond{
+    align-self: center;
+    top: 50%;
+    transform: translate(0%, -50%) scale(0.7);
+}
+/*===== txt =====*/
+h3{
+    position: relative;
+    font-size: 43px;
+    text-align: center;
+    color: var(--TextColor);
+    margin: 23px;
+}
+.top{
+    align-self: flex-start;
+}
+.bottom{
+    align-self: flex-end;
+}
+
+/*==================================================
+ Falling card
+==================================================*/
+.move{ /** outer card*/
     position: absolute;
     top: -500px;
     animation: MoveDown 2s cubic-bezier(.435,1.625,.435,.75);
@@ -50,68 +135,7 @@ section .deck, section .btns{
     transition: all 0.3s ease-in-out;
     transform: translate(0%, -50%);
 }
-@keyframes MoveDown {
-    0%{
-        top: -418px;
-        left: calc(50vw - (300/2));
-        scale: 0.33;
-    }
-    25%{
-        top: 50vh;
-        left: calc(50vw - (300/2));
-        scale: 1;
-    }
-    50%{
-        top: 50vh;
-        left: calc(50vw - (300/2));
-    }
-    75%{
-        top: 50vh;
-        left: calc(50vw - (300/2));
-        scale: 1;
-    }
-    100%{
-        top: calc(100vh + 418px);
-        left: calc(50vw - (300/2));
-        scale: 0.33;
-    }
-}
-@keyframes Rotate {
-    0%{
-        
-    }
-    30%{
-        transform: rotateY(0deg);
-    }
-    50%{
-        transform: rotateY(180deg);
-    }
-    75%{
-        transform: rotateY(180deg);
-    }
-    100%{
-        transform: rotateY(180deg);
-    }
-}
-@keyframes FadeIn {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-@keyframes End {
-    0%{
-        top: -100px;
-    }
-    100%{
-        top: 50vh;
-    }
-}
-
-.card1{
+.card1{ /** inner card*/
     background-color: transparent;
     width: 100%;
     height: 100%;
@@ -120,7 +144,7 @@ section .deck, section .btns{
     transition: transform 1s cubic-bezier(0.63, 1.25, 0, 1);
     transform-style: preserve-3d;
 }
-.card .front,.card .back {
+.card .front,.card .back { /** front and back of card*/
     position: absolute;
     background-color: transparent;
     width: 100%;
@@ -136,30 +160,9 @@ section .deck, section .btns{
     transform: rotateY(180deg);
 }
 
-
-.card img{
-    position: absolute;
-    width: 300px;
-}
-.diamond{
-    align-self: center;
-    top: 50%;
-    transform: translate(0%, -50%) scale(0.7);
-}
-
-h3{
-    position: relative;
-    font-size: 43px;
-    text-align: center;
-    color: var(--TextColor);
-    margin: 23px;
-}
-.top{
-    align-self: flex-start;
-}
-.bottom{
-    align-self: flex-end;
-}
+/*==================================================
+ Card in deck
+==================================================*/
 .sidecards{
     display: flex;
     justify-content: space-between;
@@ -169,50 +172,9 @@ h3{
     animation-fill-mode:forwards;
 }
 
-
-.person, .computer{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-    background-color: var(--Deck);
-    width: 700px;
-    height: 500px;
-    border-radius: 17px;
-}
-.accent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background: var(--accent);
-    height: 40px !important;
-    width: 100%;
-    color: var(--TextColor);
-}
-.accent img{
-    position: absolute;
-    right: 17px;
-}
-.computer .accent{
-    rotate: 180deg;
-}
-.computer .accent *{
-    rotate: 180deg;
-}
-.center{
-    background: var(--center);
-}
-
-.grid{
-    display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px 100px;
-    grid-template-rows: 140px 140px 140px;
-    grid-gap: 10px;
-    margin: 10px;
-}
-
+/*==================================================
+ Btn
+==================================================*/
 .btn {
     display: inline-block;
     background-color: var(--btn);
@@ -221,11 +183,46 @@ h3{
     color: var(--TextColor);
     user-select: none;
     border-radius: 7px;
-}
-#hit, #stand {
     cursor: no-drop;
 }
 
+#hit, #double, #stand, #surr {
+    display: none;
+}
+
+/*==================================================
+ chips
+==================================================*/
+
+.chips { /** div that all the chips is in side of */
+    overflow: hidden;
+    background-color: var(--Deck);
+    border-radius: 17px;
+}
+
+.center{ /** acsent color */
+    background: var(--center);
+}
+
+.chips img{ /** imgs of chips (2.5, 5, 10, 50, 100) */
+    margin: 13px;
+    cursor: pointer;
+}
+#chipsicon{
+    position: relative;
+    right: auto;
+    margin: 3px;
+    width: 27px;
+}
+#money{
+    text-align: center;
+    color: var(--TextColor);
+    margin-bottom: 7px;
+}
+
+/*==================================================
+ End scean
+==================================================*/
 #EndScrean {
     display: flex;
     justify-content: center;
@@ -240,22 +237,4 @@ h3{
     animation-fill-mode: forwards;
     transform: translate(0%, -50%);
     z-index: 100;
-}
-
-.chips {
-    overflow: hidden;
-    background-color: var(--Deck);
-    margin:14px;
-    border-radius: 17px;
-}
-#chipsicon{
-    position: relative;
-    right: auto;
-    margin: 3px;
-    width: 27px;
-}
-#money{
-    text-align: center;
-    color: var(--TextColor);
-    margin: 7px;
 }

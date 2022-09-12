@@ -6,36 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/img/Frame 1.png"/>
     <link rel="stylesheet" href="./assets/css/style.css" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/animation.css" onload="this.media='all'">
     <title>BlackJack</title>
 </head>
 <body>
+    <!--* End sceen -->
     <div id="EndScrean">
         <h1 id="EndText"></h1>
     </div>
     <section>
         <div class="deck">
-            <!-- players deck -->
+            <!--* players deck -->
             <div class="person">
                 <div class="accent">
                     <h2 id="PersonScore">0</h2>
                     <img src="./assets/img/person.svg" alt="">
                 </div>
                 <div id="PersonGrid" class="grid">
-                    <!-- the players cards here -->
+                    <!--* the players cards here -->
                 </div>
             </div>
-            <!-- computers deck -->
+            <!--* computers deck -->
             <div class="computer">
                 <div class="accent">
                     <h2 id="ComputerScore">0</h2>
                     <img src="./assets/img/computer.svg" alt="">
                 </div>
                 <div id="ComputerGrid" class="grid">
-                    <!-- the computers cards here -->
+                    <!--* the computers cards here -->
                 </div>
             </div>
         </div>
         <div class="btns">
+            <!--* Btns -->
             <div id="start" class="btn">Start</div>
             <div id="hit" class="btn">Hit</div>
             <div id="double" class="btn">Double</div>
@@ -43,17 +46,20 @@
             <div id="surr" class="btn">Surrender</div>
         </div>
         <div class="chips">
+            <!--* the amount of chips you have set in -->
             <div class="accent center">
                 <h2 id="ChipsScore">0</h2>
                 <img id="chipsicon" src="./assets/img/chips icon.svg" alt="">
             </div>
+            <!--* Chips -->
+            <img id="chip2.5" class="chips" src="./assets/img/Pink (2.5).svg" alt="">
             <img id="chip5" class="chips" src="./assets/img/Red (5).svg" alt="">
             <img id="chip10" class="chips" src="./assets/img/Blue (10).svg" alt="">
             <img id="chip50" class="chips" src="./assets/img/Orange (50).svg" alt="">
             <img id="chip100" class="chips" src="./assets/img/Black (100).svg" alt="">
             <h2 id="money">0$</h2>
         </div>
-        <!-- falling card -->
+        <!--* falling card -->
         <div id="move" class="card move">
             <div id="card1" class="card1">
                 <div class="front">
@@ -68,6 +74,7 @@
             </div>
         </div>
     </section>
+    <!--* JS -->
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/Bet.js"></script>
     <script src="./assets/js/Buttons.js"></script>
