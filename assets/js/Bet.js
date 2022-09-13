@@ -15,10 +15,10 @@ function chip(num) {
     if(number.bet + num <= 500 && number.money >= num && starting == false && standing == false) {
         //* cahnges the amount of money you have
         number.money -= num;
-        Money.innerHTML = number.money + "$";
+        showMoney()
         //* cahnges the bet you have set in
         number.bet += num;
-        ChipsScore.innerHTML = number.bet;
+        showBet();
         //* makes it so you can press start
         beting = true
         document.getElementById("start").style.cursor = "pointer";

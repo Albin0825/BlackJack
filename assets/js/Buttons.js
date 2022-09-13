@@ -20,16 +20,16 @@ function start() {
         document.getElementById("stand").style.display = "inline-block";
         document.getElementById("surr").style.display = "inline-block";
 
-        if(number.start == 2){
-            deeler.person = true;
+        //* changes how gets cards
+        if(number.start >= 2 && number.start < 5){
+            if(deeler.person == true) {
+                deeler.person = false;
+            }
+            else {
+                deeler.person = true;
+            }
         }
-        else if(number.start == 3){
-            deeler.person = false;
-        }
-        else if(number.start == 4){
-            deeler.person = true;
-        }
-        if(number.start == 5){
+        else if(number.start == 5){
             starting = true;
             //* changes the cursor
             document.getElementById("hit").style.cursor = "pointer";
@@ -37,7 +37,17 @@ function start() {
             document.getElementById("stand").style.cursor = "pointer";
             document.getElementById("surr").style.cursor = "pointer";
         }
-        if(starting == false){
+
+        //* give cards
+        if(number.start == 1){
+            FallingCard()
+            number.start++
+            setTimeout(() => {
+                start()
+            }, time.full)
+            console.log("i'm here")
+        }
+        else if(starting == false){
             if(number.start != 5) {
                 FadeIn();
                 number.start++
@@ -134,8 +144,8 @@ function surr() {
         number.money = number.money + (number.bet / 2);
         number.bet = 0;
         localStorage.setItem("LocalMoney", number.money);
-        money.innerHTML = number.money;
-        ChipsScore.innerHTML = number.bet;
+        showMoney()
+        showBet()
         setTimeout(() => {
             location.reload();
         }, time.full)

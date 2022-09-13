@@ -37,12 +37,12 @@ function NewCard() {
             Person.append(NewDiv); // adds card to player
         }
         if(deeler.person == false) {
-            //if(something == false) {
+            if(rotated == false) {
                 Computer.append(NewDiv) // adds card to computer
-            //}
-            //if(something == true) {
+            }
+            if(rotated == true) {
                 Computer.prepend(NewDiv) // adds card to computer
-            //}
+            }
         }
     }, time.full)
 }

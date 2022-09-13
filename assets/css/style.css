@@ -8,6 +8,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    user-select: none;
 }
 
 :root {
@@ -17,6 +18,8 @@
     --Deck: #2b2b2b;
     --btn: #2b2b2b;
     --TextColor: #eee;
+    --margin: 13px;
+    --radius: 17px;
 }
 
 body{
@@ -54,7 +57,7 @@ section{
     background-color: var(--Deck);
     width: 700px;
     height: 500px;
-    border-radius: 17px;
+    border-radius: var(--radius);
 }
 
 .accent{
@@ -63,14 +66,14 @@ section{
     align-items: center;
     position: relative;
     background: var(--accent);
-    height: 40px !important;
     width: 100%;
     color: var(--TextColor);
+    padding: 3px;
 }
 
 .accent img{
     position: absolute;
-    right: 17px;
+    right: var(--radius);
 }
 
 .computer .accent{
@@ -85,8 +88,8 @@ section{
     display: grid;
     grid-template-columns: 100px 100px 100px 100px 100px 100px;
     grid-template-rows: 140px 140px 140px;
-    grid-gap: 10px;
-    margin: 10px;
+    grid-gap: var(--margin);
+    margin: var(--margin);
 }
 
 /*==================================================
@@ -178,10 +181,9 @@ h3{
 .btn {
     display: inline-block;
     background-color: var(--btn);
-    margin: 17px;
-    padding: 17px;
+    margin: var(--radius);
+    padding: var(--radius);
     color: var(--TextColor);
-    user-select: none;
     border-radius: 7px;
     cursor: no-drop;
 }
@@ -197,27 +199,32 @@ h3{
 .chips { /** div that all the chips is in side of */
     overflow: hidden;
     background-color: var(--Deck);
-    border-radius: 17px;
+    border-radius: var(--radius);
 }
 
 .center{ /** acsent color */
     background: var(--center);
 }
 
-.chips img{ /** imgs of chips (2.5, 5, 10, 50, 100) */
-    margin: 13px;
+.chips img, .chips img:not(#chipsicon){ /** imgs of chips (2.5, 5, 10, 50, 100) */
+    margin: var(--margin);
     cursor: pointer;
+}
+#ChipsScore {
+    display: flex;
+    align-items: center;
+    grid-gap: 3px;
 }
 #chipsicon{
     position: relative;
-    right: auto;
-    margin: 3px;
     width: 27px;
+    right: 0;
+    margin: 0;
 }
 #money{
     text-align: center;
     color: var(--TextColor);
-    margin-bottom: 7px;
+    margin-bottom: var(--margin);
 }
 
 /*==================================================

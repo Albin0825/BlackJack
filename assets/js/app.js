@@ -35,6 +35,8 @@ var deeler = {person: false}                //* if it's the players turn to take
 var time = {full: 2000, half: 1000}
 var text = "";                              //* end text
 var once = false                            //* only start background music ones
+var rotated = true
+var cardnumber = null;
 
 /*==================================================
  LocalStorage 
@@ -56,7 +58,7 @@ End.style.animation = "none";
 /*==================================================
  Changes the money
 ==================================================*/
-Money.innerHTML = number.money + "$";
+showMoney()
 
 /*==================================================
  Ambiance music
@@ -99,7 +101,15 @@ function FallingCard() {
     card1.style.animation = null;
 }
 
-
+/*==================================================
+ Change bet/money
+==================================================*/
+function showBet(){
+    ChipsScore.innerHTML = number.bet + " <img id='chipsicon' src='./assets/img/chips icon.svg' alt=''>";
+}
+function showMoney(){
+    money.innerHTML = number.money + "$";
+}
 
 /*==================================================
  End sceen
@@ -111,8 +121,8 @@ function win() {
     number.money = number.money + (number.bet * 2);
     number.bet = 0;
     localStorage.setItem("LocalMoney", number.money);
-    money.innerHTML = number.money + "$";
-    ChipsScore.innerHTML = number.bet;
+    showMoney()
+    showBet()
 }
 function lose() {
     text = "YOU LOSE";
@@ -120,8 +130,8 @@ function lose() {
     audio.play();
     number.bet = 0;
     localStorage.setItem("LocalMoney", number.money);
-    money.innerHTML = number.money + "$";
-    ChipsScore.innerHTML = number.bet;
+    showMoney()
+    showBet()
 }
 function draw() {
     text = "DRAW";
@@ -130,8 +140,8 @@ function draw() {
     number.money = number.money + (number.bet / 2);
     number.bet = 0;
     localStorage.setItem("LocalMoney", number.money);
-    money.innerHTML = number.money + "$";
-    ChipsScore.innerHTML = number.bet;
+    showMoney()
+    showBet()
 }
 
 function EndScreen() {
