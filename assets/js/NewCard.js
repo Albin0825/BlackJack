@@ -10,16 +10,23 @@ function NewCard() {
         NewDiv.classList.add("card")
         NewDiv.classList.add("sidecards")
 
-        //* background of the card
-        const imgbg = document.createElement("img");
-        imgbg.src = "assets/img/Card.svg";
-        NewDiv.append(imgbg);
+        if(number.start == 1) {
+            const imgdia = document.createElement("img");
+            imgdia.src = "./assets/img/Card 2.svg";
+            NewDiv.append(imgdia);
+        }
+        else {
+            //* background of the card
+            const imgbg = document.createElement("img");
+            imgbg.src = "assets/img/Card.svg";
+            NewDiv.append(imgbg);
 
-        //* diamond shape on card
-        const imgdia = document.createElement("img");
-        imgdia.src = "assets/img/Diamonds.svg";
-        imgdia.classList.add("diamond")
-        NewDiv.append(imgdia);
+            //* diamond shape on card
+            const imgdia = document.createElement("img");
+            imgdia.src = "assets/img/Diamonds.svg";
+            imgdia.classList.add("diamond")
+            NewDiv.append(imgdia);
+        }
 
         //* top number of card
         const h3top = document.createElement("h3");
@@ -37,11 +44,12 @@ function NewCard() {
             Person.append(NewDiv); // adds card to player
         }
         if(deeler.person == false) {
-            if(rotated == false) {
+            if(rotated == true) {
                 Computer.append(NewDiv) // adds card to computer
             }
-            if(rotated == true) {
+            if(rotated == false) {
                 Computer.prepend(NewDiv) // adds card to computer
+                rotated = true;
             }
         }
     }, time.full)

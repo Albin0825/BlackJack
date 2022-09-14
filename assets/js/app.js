@@ -34,9 +34,9 @@ var standing = false;                       //*
 var deeler = {person: false}                //* if it's the players turn to take cards or not
 var time = {full: 2000, half: 1000}
 var text = "";                              //* end text
-var once = false                            //* only start background music ones
+var once = {music: false, stand: false}         //* only start background music ones
 var rotated = true
-var cardnumber = null;
+var cardnumber = "";
 
 /*==================================================
  LocalStorage 
@@ -64,7 +64,7 @@ showMoney()
  Ambiance music
 ==================================================*/
 function ambiance() {
-    if(once == false) {
+    if(once.music == false) {
         var bgaudio = new Audio('assets/audio/bg sound 3.mp3');
         bgaudio.volume = 0.06125;
         bgaudio.play();
@@ -72,7 +72,7 @@ function ambiance() {
             this.currentTime = 0;
             this.play();
         }, false);
-        once = true;
+        once.music = true;
     }
 }
 

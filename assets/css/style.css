@@ -237,11 +237,10 @@ h3{
     position: absolute;
     background-color: rgba(0, 0, 0, 0.25);
     width: 100vw;
-    height: 100px;
-    top: -100px;
+    height: 100vh;
     color: var(--TextColor);
+    opacity: 0;
     animation: End 0.62s cubic-bezier(.435,1.625,.435,.75);
     animation-fill-mode: forwards;
-    transform: translate(0%, -50%);
     z-index: 100;
 }

@@ -41,13 +41,15 @@ function start() {
         //* give cards
         if(number.start == 1){
             FallingCard()
-            number.start++
+            card1.style.animation = "none";
+            NewCard()
             setTimeout(() => {
+                number.start++
                 start()
             }, time.full)
             console.log("i'm here")
         }
-        else if(starting == false){
+        else{
             if(number.start != 5) {
                 FadeIn();
                 number.start++
@@ -89,6 +91,7 @@ function stand() {
         starting = false;
         standing = true;
         deeler.person = false;
+        rotated = false
         stands2();
     }
 }
@@ -96,10 +99,14 @@ function stand() {
 function stands2() {
     //* datorn drar mer kort
     if(temp.computer < 17 && temp.person <= 20){
+        if(once.stand == false) {
+            Computer.removeChild(Computer.children[0]);
+            once.stand = true;
+        }
         FadeIn();
         setTimeout(() => {
             stands2()
-        }, time.full)
+        }, time.full);
     }
     //* ifall datorn blir fet
     else if(temp.computer >= 22){
