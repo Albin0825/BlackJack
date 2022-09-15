@@ -36,6 +36,7 @@ function start() {
             }
         }
         else if(number.start == 5){
+            starting = true;
             //* changes the cursor
             document.getElementById("hit").style.cursor = "pointer";
             document.getElementById("double").style.cursor = "pointer";
@@ -70,27 +71,35 @@ function start() {
  Hit
 ==================================================*/
 function hit() {
-    FadeIn();
+    if(starting == true){
+        FadeIn();
+    }
 }
 
 /*==================================================
  Double
 ==================================================*/
 function double() {
-    FadeIn();
-    setTimeout(() => {
-        stand()
-    }, time.full)
+    if(starting == true){
+        FadeIn();
+        starting = false;
+        setTimeout(() => {
+            stand()
+        }, time.full)
+    }
 }
 
 /*==================================================
  Stand
 ==================================================*/
 function stand() {
-    standing = true;
-    deeler.person = false;
-    rotated = false
-    stands2();
+    if(starting == true){
+        starting = false;
+        standing = true;
+        deeler.person = false;
+        rotated = false
+        stands2();
+    }
 }
 
 function stands2() {
@@ -155,15 +164,18 @@ function stands2() {
  Surr
 ==================================================*/
 function surr() {
-    standing = true;
-    number.money = number.money + (number.bet / 2);
-    number.bet = 0;
-    localStorage.setItem("LocalMoney", number.money);
-    showMoney()
-    showBet()
-    setTimeout(() => {
-        location.reload();
-    }, time.full)
+    if(starting == true){
+        starting = false;
+        standing = true;
+        number.money = number.money + (number.bet / 2);
+        number.bet = 0;
+        localStorage.setItem("LocalMoney", number.money);
+        showMoney()
+        showBet()
+        setTimeout(() => {
+            location.reload();
+        }, time.full)
+    }
 }
 
 /*==================================================
