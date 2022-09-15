@@ -12,7 +12,7 @@ document.getElementById("chip100").addEventListener("click", function(){chip(100
  Start
 ==================================================*/
 function chip(num) {
-    if(number.bet + num <= 500 && number.money >= num && starting == false && standing == false) {
+    if(number.bet + num <= 500 && number.money >= num && standing == false) {
         //* cahnges the amount of money you have
         number.money -= num;
         showMoney()

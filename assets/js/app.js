@@ -29,7 +29,6 @@ document.body.addEventListener("click", ambiance);
 var number = {start: 1, bet:0, money: 500}; //*
 var temp = {person:0,computer:0};           //*
 var beting = false;                         //*
-var starting = false;                       //*
 var standing = false;                       //*
 var deeler = {person: false}                //* if it's the players turn to take cards or not
 var time = {full: 2000, half: 1000}
