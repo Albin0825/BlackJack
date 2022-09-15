@@ -13,6 +13,10 @@ document.getElementById("surr").addEventListener("click", surr);
 ==================================================*/
 function start() {
     if(beting == true && standing == false) {
+        //* Saves the money so you can not cheat
+        localStorage.setItem("LocalMoney", number.money + (number.bet / 2));
+
+
         //* makes the button disapear or appear
         document.getElementById("start").style.display = "none";
         document.getElementById("hit").style.display = "inline-block";

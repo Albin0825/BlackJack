@@ -115,7 +115,7 @@ function showMoney(){
  End sceen
 ==================================================*/
 function win() {
-    text = "YOU WIN";
+    text = 'YOU WIN';
     var audio = new Audio('./assets/audio/John Silke - Blackjack - Female Voice, You Win.wav');
     audio.play();
     number.money = number.money + (number.bet * 2);
@@ -125,7 +125,7 @@ function win() {
     showBet()
 }
 function lose() {
-    text = "YOU LOSE";
+    text = 'YOU LOSE';
     var audio = new Audio('./assets/audio/John Silke - Blackjack - Female Voice, Dealer Wins.wav');
     audio.play();
     number.bet = 0;
@@ -134,7 +134,7 @@ function lose() {
     showBet()
 }
 function draw() {
-    text = "DRAW";
+    text = 'DRAW';
     var audio = new Audio('./assets/audio/John Silke - Blackjack - Female Voice, You Lose.wav');
     audio.play();
     number.money = number.money + (number.bet / 2);

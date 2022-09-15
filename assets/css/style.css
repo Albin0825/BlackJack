@@ -234,13 +234,34 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: column;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.25);
     width: 100vw;
     height: 100vh;
     color: var(--TextColor);
     opacity: 0;
+    pointer-events: none;
     animation: End 0.62s cubic-bezier(.435,1.625,.435,.75);
     animation-fill-mode: forwards;
     z-index: 100;
+}
+#EndScrean div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg , rgba(0,0,0,0) 0%, rgba(0,0,0,0) 12%, rgba(calc(255/2),calc(255/2),calc(255/2),0.5) 50%, rgba(0,0,0,0) 88%, rgba(0,0,0,0) 100%);
+    width: 100vw;
+    height: 33vh;
+}
+#EndScrean div img {
+    position: absolute;
+    scale: 0.25;
+}
+#EndScrean div h1 {
+    display: inline-block;
+    position: absolute;
+    z-index: 100;
+    font-size: 32px;
+    transform: translate(0%, 58%);
 }
