@@ -53,7 +53,6 @@ function start() {
                 number.start++
                 start()
             }, time.full)
-            console.log("i'm here")
         }
         else{
             if(number.start != 5) {
@@ -83,8 +82,15 @@ function double() {
     if(starting == true){
         FadeIn();
         starting = false;
+        standing = true;
+        number.bet = number.bet * 2
+        number.money = number.money - (number.bet/2)
+        localStorage.setItem("LocalMoney", number.money);
+        showMoney()
+        showBet()
         setTimeout(() => {
-            stand()
+            deeler.person = false;
+            stands2()
         }, time.full)
     }
 }
@@ -126,36 +132,30 @@ function stands2() {
         if(temp.person >= 22) {
             draw();
             EndScreen();
-            document.getElementById("restart").style.pointerEvents = "auto"
         }
         else {
             win();
             EndScreen();
-            document.getElementById("restart").style.pointerEvents = "auto"
         }
     }
     //* ifall spelaren blir fet
     else if(temp.person >= 22) {
         lose();
         EndScreen();
-        document.getElementById("restart").style.pointerEvents = "auto"
     }
     //* om ingen blir fet
     else{
         if(temp.person > temp.computer) {
             win();
             EndScreen();
-            document.getElementById("restart").style.pointerEvents = "auto"
         }
         else if(temp.person < temp.computer) {
             lose();
             EndScreen();
-            document.getElementById("restart").style.pointerEvents = "auto"
         }
         else {
             draw();
             EndScreen();
-            document.getElementById("restart").style.pointerEvents = "auto"
         }
     }
 }

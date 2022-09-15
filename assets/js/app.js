@@ -27,7 +27,7 @@ document.body.addEventListener("click", ambiance);
  variabler 
 ==================================================*/
 var number = {start: 1, bet:0, money: 500}; //*
-var temp = {person:0,computer:0};           //*
+var temp = {person:0, kort: 0,computer:0};           //*
 var beting = false;                         //*
 var starting = false;                       //*
 var standing = false;                       //*
@@ -41,11 +41,15 @@ var cardnumber = "";
 /*==================================================
  LocalStorage 
 ==================================================*/
+currentTime = parseFloat(localStorage.getItem("LocalAudio"));
+if(isNaN(currentTime)){
+    currentTime = 0;
+}
+
 number.money = parseFloat(localStorage.getItem("LocalMoney"));
 if(isNaN(number.money)){
     number.money = 500;
 }
-console.log(localStorage.getItem("LocalMoney"))
 
 /*==================================================
  Stops animation 
@@ -67,6 +71,8 @@ function ambiance() {
     if(once.music == false) {
         var bgaudio = new Audio('assets/audio/bg sound 3.mp3');
         bgaudio.volume = 0.06125;
+        bgaudio.currentTime = (Math.floor(Math.random() * (3600/2)));
+        console.log(bgaudio.currentTime)
         bgaudio.play();
         bgaudio.addEventListener('ended', function() {
             this.currentTime = 0;
@@ -118,7 +124,12 @@ function win() {
     text = 'YOU WIN';
     var audio = new Audio('./assets/audio/John Silke - Blackjack - Female Voice, You Win.wav');
     audio.play();
-    number.money = number.money + (number.bet * 2);
+    if(temp.person == 21 && temp.kort <= 2) {
+        number.money = number.money + (number.bet * 2.5);
+    }
+    else {
+        number.money = number.money + (number.bet * 2);
+    }
     number.bet = 0;
     localStorage.setItem("LocalMoney", number.money);
     showMoney()
@@ -145,8 +156,13 @@ function draw() {
 }
 
 function EndScreen() {
+    ambiance();
+
     EndText.innerHTML = text;
     End.style.animation = 'none';
     End.offsetHeight; //* trigger reflow
     End.style.animation = null;
+
+    document.getElementById("restart").style.pointerEvents = "auto"
+    document.getElementById("restart").style.cursor = "pointer"
 }

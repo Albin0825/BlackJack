@@ -20,7 +20,7 @@ function GetNumber() {
         if(deeler.person == true){
             temp.person = temp.person + cardnumber;
             PersonScore.innerHTML = temp.person;
-
+            temp.kort++
             //* Checks if player should stand automaticly (if 21 and above)
             if(temp.person >= 21) {
                 setTimeout(() => {
@@ -38,6 +38,10 @@ function GetNumber() {
         //* Audio
         if(temp.person >= 22 && deeler.person == true || temp.computer >= 22 && deeler.person == false) {
             var audio = new Audio('./assets/audio/John Silke - Blackjack - Female Voice, Bust.wav');
+            audio.play();
+        }
+        else if(cardnumber == 21 && temp.kort <= 2) {
+            var audio = new Audio('./assets/audio/John Silke - Blackjack - Female Voice, Blackjack.wav');
             audio.play();
         }
         else if(cardnumber == 1 || cardnumber == 11) {
